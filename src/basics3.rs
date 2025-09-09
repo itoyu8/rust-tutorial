@@ -15,6 +15,7 @@ pub fn run3() {
     スタックにはptr len（長さ3） capacity（メモリ）→もしこの上限を超えたときに別の場所に移動する
     値のコピーには，v2 = v1.clone(); とする．コピー元のサイズは問題ないかなど注意が必要
     数値型や論理型などスタック領域に格納される値ではコピーが行われる．値をコピーしたとしても十分高速であると保証できるため
+    実際にはcopyトレイとを実装した型は移動ではなくコピー：int/float/bool/str/tuple（要素がすべてcopy型である場合）
 
 
 
@@ -33,4 +34,19 @@ pub fn run3() {
         v2.push(4);
     }
 
+    //関数で所有権が移動するケース
+
+    let s1 = String::from("Hello");
+    let s2 = String::from("Rust");
+    let s = concat(s1, s2); //この時点でs1とs2の所有権がconcatの引数aとbに入ってしまう
+    println!("{}", s);
+    println!("{}", s1);
+    println!("{}", s2);
+
+
+}
+
+fn concat(a: String, b: String) -> String{
+    let c: String = format!("{}, {}", a, b);
+    c
 }
