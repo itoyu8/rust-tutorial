@@ -14,11 +14,23 @@ pub fn run5() {
     crates.ioから他者のクレートを取得したり自分のクレートを公開できる．
     crates.ioからクレートを取得するには，cargo.tomlの[dependency]にクレート名とバージョンを指定
     cargo runやcargo build時にcreate.ioから取得される
+    crates.ioに行って，クレートをcargo.tomlに記載する
 
      */
+    // まず関数の冒頭でクレートの宣言
+    use rand::Rng;
+
+    let random_number = rand::random_range(1..101); //現在はこの仕様にはなっていないようだ
+    println!("{}", random_number);
+    
     println!("Hello");
 
-
-
+    /*
+    モジュール：クレート内のコードをグループ化して，可読性と再利用性を高める
+    Rustの名前空間として使用される
+    modキーワードを使用して作成する
+    基本的には1ファイル1モジュールとするのが基本だが肥大化してきたら複数ファイルにする
+    public 要素がモジュールの外部からアクセス可能，private モジュール内もしくはそのその子モジュールのみからアクセス可能
+     */
 
 }
