@@ -5,7 +5,7 @@
 //mod basics5;
 mod basics6;
 //mod basics6::submodules1;
-
+use rust_tutorial::sample_trait::{Shape,Rectangle, Circle};
 
 
 fn main() {
@@ -35,9 +35,16 @@ fn main() {
     let test_structure = submodule1::teststruct::new(1, 2);
     rust_tutorial::say_hello();
 
+    let rect = Rectanle{}
+
 
 
 
 
 
 }
+
+
+// Cargo.tomlに記載できる
+// profile.devのopt-level = 0がデフォルト，profile.releaseのopt-level = 3がデフォルト
+// コンパイルの最適化を表す
